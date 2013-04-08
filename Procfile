@@ -1,1 +1,1 @@
-web: gunicorn google-enchance:app
+web: gunicorn google-enchance:app json-rpc
