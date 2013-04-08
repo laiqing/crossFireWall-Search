@@ -1,1 +1,1 @@
-web: python google-enchance.py
+web: gunicorn google-enchance:app
