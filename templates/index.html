@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>Fucking the GFW</title>
+<script language="javascript" type="text/javascript" src="{{jquerysrc}}"></script>
+<script language="javascript" type="text/javascript" src="./static/jquery.js"></script>
+<script language="javascript" type="text/javascript">
+	function verify() {
+		var key=document.sch.q.value;
+		if (key=="") {
+			alert("请输入查询条件！");
+			return false;
+		}
+		else {
+			//把查询关键词都反转一下，在服务端复原
+			document.sch.q.value = key.split("").reverse().join("");			
+			return true;
+		}
+	}
+</script>
+</head>
+<body>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p align="center">
+	<img src="{{imgst}}" width=275 height=95>
+</p>
+<p align="center">绕过GFW的阻挠搜索Google，避免反复断网</p>
+<div align="center">
+<form id="sch" name="sch" method="post" action="/sch" onsubmit="return verify();">
+	<input id="sidx" name="start" type="hidden" value="1"/>
+	<input id="q" name="q" type="text" style="width:418px;" value="" /> <input id="su" name="su" type="submit"  value="Google it"/>
+</form>
+</div>
+<p align="center">version:0.1</p>
+</body>
+</html>
