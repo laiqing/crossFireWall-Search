@@ -24,7 +24,7 @@ def search():
         s = request.args.get('q', '')
         src = s[::-1]
         sidx = request.args.get('start','1')
-    squery = {"key":"AIzaSyCysqfXYhqcf8ITc-AJqISiSm740TsouYk","cx":"009162889029278919880:2pcmrnqpomg","q":src,"start":sidx}
+    squery = {"key":"AIzaSyCysqfXYhqcf8ITc-AJqISiSm740TsouYk","cx":"009162889029278919880:2pcmrnqpomg","q":src.encode("GB18030"),"start":sidx}
     qurl = "https://www.googleapis.com/customsearch/v1?" + urllib.urlencode(squery)
     req=urllib2.Request(qurl,None,{'Referer':'http://Afflatusmind.com'})
     resp=urllib2.urlopen(req)
