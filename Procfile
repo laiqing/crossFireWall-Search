@@ -1,1 +1,1 @@
-web: gunicorn google-enchance:app
+web: gunicorn --debug google-enchance:app
