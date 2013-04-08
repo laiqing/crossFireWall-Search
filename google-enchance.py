@@ -5,6 +5,7 @@ import urllib2
 import json
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
 initURL = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCysqfXYhqcf8ITc-AJqISiSm740TsouYk&cx=009162889029278919880:2pcmrnqpomg"
 
 @app.route('/')
