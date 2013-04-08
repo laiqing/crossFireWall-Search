@@ -27,7 +27,8 @@ def search():
     qurl = "https://www.googleapis.com/customsearch/v1?" + urllib.urlencode(squery)
     req=urllib2.Request(qurl,None,{'Referer':'http://Afflatusmind.com'})
     resp=urllib2.urlopen(req)
-    jsondata=json.load(resp)    
+    jsondata=json.load(resp)
+    print jsondata
     return genHTMLfromJSON(jsondata,s,sidx)
 
     
