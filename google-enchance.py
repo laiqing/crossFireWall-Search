@@ -61,7 +61,7 @@ def genHTMLfromJSON(jsondata,q,sidx):
                         </form>
                     </p>
                     <p></p>
-                    <p>共有：{{recordCount}}条记录，检索花费时间：{{searchTime}}</p>
+                    <p>Record number: {{recordCount}}, Search time: {{searchTime}}</p>
                     <p></p>
                     <p>
                         <div id="page">
@@ -89,7 +89,7 @@ def genHTMLfromJSON(jsondata,q,sidx):
                         </form>
                     </p>
                     <p></p>
-                    <p>Record number：{{recordCount}}，Search time：{{searchTime}}</p>
+                    <p>Record number: {{recordCount}}, Search time: {{searchTime}}</p>
                     <p></p>
                     <div id="page">
                         {% for item in items %} 
