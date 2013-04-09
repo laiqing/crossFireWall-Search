@@ -60,6 +60,9 @@ def genHTMLfromJSON(jsondata,q,sidx):
                             <input id="su" name="su" type="submit"  value="Google it"/>
                         </form>
                     </p>
+                    <p></p>
+                    <p>共有：{{recordCount}}条记录，检索花费时间：{{searchTime}}</p>
+                    <p></p>
                     <p>
                         <div id="page">
                             {% for item in items %} 
@@ -85,6 +88,9 @@ def genHTMLfromJSON(jsondata,q,sidx):
                             <input id="su" name="su" type="submit"  value="Google it"/>
                         </form>
                     </p>
+                    <p></p>
+                    <p>共有：{{recordCount}}条记录，检索花费时间：{{searchTime}}</p>
+                    <p></p>
                     <div id="page">
                         {% for item in items %} 
                             <p>
@@ -100,13 +106,17 @@ def genHTMLfromJSON(jsondata,q,sidx):
     if sidx=="1":
         #render with head script
         nextstart=jsondata["queries"]["nextPage"][0]["startIndex"]
+        searchTime=jsondata["searchInformation"]["formattedSearchTime"]
+        recordCount=jsondata["searchInformation"]["totalResults"]
         items = jsondata["items"]
-        return render_template_string(first_page,items=items,q=q,nextstart=nextstart)
+        return render_template_string(first_page,items=items,q=q,nextstart=nextstart,searchTime=searchTime,recordCount=recordCount)
     else:
         #render without script
         nextstart=jsondata["queries"]["nextPage"][0]["startIndex"]
+        searchTime=jsondata["searchInformation"]["formattedSearchTime"]
+        recordCount=jsondata["searchInformation"]["totalResults"]
         items = jsondata["items"]
-        return render_template_string(second_page,items=items,q=q,nextstart=nextstart)
+        return render_template_string(second_page,items=items,q=q,nextstart=nextstart,searchTime=searchTime,recordCount=recordCount)
 
 if __name__ == '__main__':
     app.run(debug=True)
